@@ -1,0 +1,27 @@
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: node-js-autoscale
+  namespace: default
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: node-js-deployment
+    selector :
+    matchLabels:
+    app :node-js
+    a
+  minReplicas: 7
+  maxReplicas: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      target:
+          type: Utilization
+          averageUtilization: 50
+      name: memory
+      target:
+          type: Utilization
+          averageUtilization: 60

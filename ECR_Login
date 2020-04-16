@@ -1,0 +1,9 @@
+
+command to login to the ECR
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 851846427799.dkr.ecr.us-west-2.amazonaws.com
+
+Once Login is successfull we will get message as login successfull .
+
+to pull the image from ECR
+docker pull 851846427799.dkr.ecr.us-west-2.amazonaws.com/nodejs-test:latest
+
